@@ -72,3 +72,29 @@ body {
     align-items: left;
 }
 
+ul {
+    list-style-type: none;
+    padding: 0%;
+    margin: 0%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+li {
+    background-color: floralwhite;
+    margin: 5px 0;
+    padding: 20px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 200px;
+    width: 200px;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 9px 9px 18px #b3b3b3,
+    -9px -9px 18px #ffffff;
+}
+
