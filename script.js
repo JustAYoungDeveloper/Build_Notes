@@ -19,3 +19,23 @@ function closePopup() {
         popupContainer.remove();
     }
 }
+
+function createNote() {
+    const popupContainer = document.getElementById('popupContainer');
+    const noteText = document.getElementById('note-text').value;
+    if (noteText.trim() !== '') {
+        const note = {
+            id: new Date().getTime(),
+            text: noteText
+        };
+
+        const existingNotes = JSON.parse(localStorage.getItem('notes')) || [];
+        existingNotes.push(note);
+
+        localStorage.setItem('notes', JSON.stringify(existingNotes));
+
+        document.getElementById('note-text').value = '';
+        popupContainer.remove();
+        displayNotes();
+    }
+}
