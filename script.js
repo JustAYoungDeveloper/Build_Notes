@@ -12,3 +12,10 @@ function popup() {
     `;
     document.body.appendChild(popupContainer)
 }
+
+function closePopup() {
+    const popupContainer = document.getElementById('popupContainer')
+    if (popupContainer) {
+        popupContainer.remove();
+    }
+}
