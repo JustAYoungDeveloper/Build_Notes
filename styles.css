@@ -43,7 +43,7 @@ body {
 }
 
 #AddNoteDiv {
-    background-color: ghostwhite;
+    background-color: #b3b3b3;
     border: 1px solid #ddd;
     padding: 20px;
     border-radius: 8px;
@@ -200,7 +200,7 @@ textarea {
 #submitBtn, #closeBtn {
     width: 100px;
     background-color: azure;
-    color: #fff;
+    color: black;
     font-size: 14px;
     border: none;
     border-radius: 5px;

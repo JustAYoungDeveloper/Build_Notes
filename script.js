@@ -39,3 +39,22 @@ function createNote() {
         displayNotes();
     }
 }
+
+function displayNotes() {
+    const noteList = document.getElementById('notes-list');
+    noteList.innerHTML = '';
+
+    const notes = JSON.parse(localStorage.getItem('notes')) || [];
+
+    notes.forEach(note => {
+        const listItem = document.getElementById('li');
+        listItem.innerHTML = `
+        <span>${note.text}</span>
+        <div id="noteBtns-container">
+            <button id="editBtn" onclick="editNote(${note.id})"><i class="fa solid fa-pen"></i></button>
+            <button id="deleteBtn" onclick="deleteNote(${note.id})"><i class="fa-solid fa-trash"></i></button>
+        </div>    
+        ` 
+        note.appendChild(listItem);
+    });
+}
