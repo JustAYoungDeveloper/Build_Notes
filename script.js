@@ -58,3 +58,22 @@ function displayNotes() {
         note.appendChild(listItem);
     });
 }
+
+function editNote() {
+    const notes = JSON.parse(localStorage.getItem('notes') || []);
+    const noteToEdit = notes.find(note => note.id == noteId);
+    const noteText = noteToEdit ? noteToEdit.text : '';
+    const editingPopup = document.createElementa('div');
+
+    editingPopup.innerHTML = `
+    <div id="editing-container" data-note-id="${noteId}">
+    <h1>Edit Note</h1>
+    <textarea id="note-text">${noteText}</textarea>
+    <div id="btn-container">
+        <button id="sumbitBtn" onclick="updateNote()">Done</button>
+         <button id="closeBtn" onclick="closeEditPopup()">Cancel</button>
+        </div>
+    </div>
+    `
+    document.appendChild(editingPopup);
+}
