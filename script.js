@@ -105,3 +105,11 @@ function updateNote() {
     }
 }
 
+function deleteNote(noteId) {
+        let notes = JSON.parse(localStorage.getItem('notes')) || [];
+        notes = notes.filter(note => note.id !== noteId);
+        localStorage.setItem('notes', JSON.stringify(notes));
+        displayNotes();
+    }
+
+displayNotes();
