@@ -59,7 +59,7 @@ function displayNotes() {
     });
 }
 
-function editNote() {
+function editNote(noteId) {
     const notes = JSON.parse(localStorage.getItem('notes') || []);
     const noteToEdit = notes.find(note => note.id == noteId);
     const noteText = noteToEdit ? noteToEdit.text : '';
