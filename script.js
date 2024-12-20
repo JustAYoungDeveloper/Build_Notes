@@ -77,3 +77,31 @@ function editNote() {
     `
     document.appendChild(editingPopup);
 }
+
+function closeEditPopup() {
+    const editingPopup = document.getElementById("editing-container");
+    if (editingPopup) {
+        editingPopup.remove();
+    }
+}
+
+function updateNote() {
+    const noteText = document.getElementById('note-text').value.trim();
+    const editingPopup = document.getElementById("editing-container");
+
+    if (noteText !== '') {
+        const noteId = document.getAttribute('data-note-id');
+        let notes = JSON.parse(localStorage.getItem('notes')) || [];
+
+        const updateNotes = notes.map(note => {
+            if (note.id == noteId) {
+                return {id: note.id, text: note.text};
+            }
+            return note;
+        });
+        localStorage.setItem('notes', JSON.stringify(updateNotes));
+        editingPopup.remove();
+        displayNotes();
+    }
+}
+
